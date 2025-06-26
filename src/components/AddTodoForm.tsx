@@ -22,7 +22,7 @@ export default function AddTodoForm({
             value={newTodo}
             onChange={(e) => onNewTodoChange(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && onAdd()}
-            placeholder="添加新的任务..."
+            placeholder="Add a new task..."
             className="flex-1 px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
             autoFocus
           />
@@ -30,13 +30,13 @@ export default function AddTodoForm({
             onClick={onAdd}
             className="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            添加
+            Add
           </button>
           <button
             onClick={onCancel}
             className="px-6 py-3 bg-gray-500 hover:bg-gray-600 text-white font-medium rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-300"
           >
-            取消
+            Cancel
           </button>
         </div>
       </div>

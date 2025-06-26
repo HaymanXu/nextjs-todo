@@ -31,7 +31,7 @@ export default function TodoFilter({
                 : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
             }`}
           >
-            全部 ({totalCount})
+            All ({totalCount})
           </button>
           <button
             onClick={() => onFilterChange('active')}
@@ -41,7 +41,7 @@ export default function TodoFilter({
                 : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
             }`}
           >
-            进行中 ({activeCount})
+            Active ({activeCount})
           </button>
           <button
             onClick={() => onFilterChange('completed')}
@@ -51,7 +51,7 @@ export default function TodoFilter({
                 : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
             }`}
           >
-            已完成 ({completedCount})
+            Completed ({completedCount})
           </button>
         </div>
         {filter === 'completed' && completedCount > 0 && (
@@ -59,7 +59,7 @@ export default function TodoFilter({
             onClick={onClearCompleted}
             className="px-4 py-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
           >
-            清除已完成
+            Clear Completed
           </button>
         )}
       </div>

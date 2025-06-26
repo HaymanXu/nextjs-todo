@@ -9,7 +9,7 @@ export default function TodoStats({ totalCount, activeCount, completedCount }: T
 
   return (
     <div className="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
-      总计 {totalCount} 个任务，其中 {activeCount} 个进行中，{completedCount} 个已完成
+      Total {totalCount} tasks, {activeCount} active, {completedCount} completed
     </div>
   );
 } 

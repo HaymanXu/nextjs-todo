@@ -15,9 +15,9 @@ export default function TodoList({ todos, filter, onToggle, onDelete }: TodoList
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
       {todos.length === 0 ? (
         <div className="p-8 text-center text-gray-500 dark:text-gray-400">
-          {filter === 'all' && '还没有任务，开始添加你的第一个任务吧！'}
-          {filter === 'active' && '没有进行中的任务'}
-          {filter === 'completed' && '没有已完成的任务'}
+          {filter === 'all' && 'No tasks yet. Start by adding your first task!'}
+          {filter === 'active' && 'No active tasks'}
+          {filter === 'completed' && 'No completed tasks'}
         </div>
       ) : (
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">

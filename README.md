@@ -1,137 +1,137 @@
-# Next.js ToDo 应用
+# Next.js ToDo Application
 
-一个功能完整的ToDo应用，使用Next.js 15、TypeScript、Tailwind CSS和SQLite数据库构建。
+A feature-complete ToDo application built with Next.js 15, TypeScript, Tailwind CSS, and SQLite database.
 
-## 功能特性
+## Features
 
-### ✅ 核心功能
-- **添加任务** - 点击右下角浮动按钮添加新任务
-- **删除任务** - 点击任务右侧的删除图标
-- **标记完成/未完成** - 点击任务左侧的圆形按钮切换状态
-- **任务过滤** - 查看全部、进行中或已完成的任务
-- **批量清除** - 一键清除所有已完成的任务
+### ✅ Core Features
+- **Add Tasks** - Click the floating button in the bottom right to add new tasks
+- **Delete Tasks** - Click the delete icon on the right side of each task
+- **Mark Complete/Incomplete** - Click the circular button on the left to toggle status
+- **Task Filtering** - View all, active, or completed tasks
+- **Bulk Clear** - Clear all completed tasks with one click
 
-### 🎨 界面设计
-- **现代化UI** - 使用Tailwind CSS设计的简洁美观界面
-- **响应式设计** - 适配不同屏幕尺寸
-- **深色模式支持** - 自动适应系统主题
-- **浮动操作按钮** - 底部弹出式添加表单
+### 🎨 UI Design
+- **Modern UI** - Clean and beautiful interface designed with Tailwind CSS
+- **Responsive Design** - Adapts to different screen sizes
+- **Dark Mode Support** - Automatically adapts to system theme
+- **Floating Action Button** - Bottom popup form for adding tasks
 
-### 🗄️ 数据持久化
-- **SQLite数据库** - 使用Prisma ORM管理数据
-- **RESTful API** - 完整的CRUD操作API
-- **错误处理** - 完善的错误提示和处理机制
+### 🗄️ Data Persistence
+- **SQLite Database** - Data managed with Prisma ORM
+- **RESTful API** - Complete CRUD operations API
+- **Error Handling** - Comprehensive error prompts and handling mechanisms
 
-## 技术栈
+## Tech Stack
 
-- **前端**: Next.js 15, React 19, TypeScript
-- **样式**: Tailwind CSS 4
-- **数据库**: SQLite
+- **Frontend**: Next.js 15, React 19, TypeScript
+- **Styling**: Tailwind CSS 4
+- **Database**: SQLite
 - **ORM**: Prisma
-- **开发工具**: Turbopack
+- **Development Tools**: Turbopack
 
-## 快速开始
+## Quick Start
 
-### 1. 安装依赖
+### 1. Install Dependencies
 
 ```bash
 npm install
 ```
 
-### 2. 设置环境变量
+### 2. Set Environment Variables
 
-确保`.env`文件包含数据库配置：
+Ensure the `.env` file contains database configuration:
 
 ```env
 DATABASE_URL="file:./dev.db"
 ```
 
-### 3. 初始化数据库
+### 3. Initialize Database
 
 ```bash
-# 生成Prisma客户端
+# Generate Prisma client
 npx prisma generate
 
-# 创建数据库表
+# Create database tables
 npx prisma db push
 ```
 
-### 4. 启动开发服务器
+### 4. Start Development Server
 
 ```bash
 npm run dev
 ```
 
-访问 [http://localhost:3000](http://localhost:3000) 查看应用。
+Visit [http://localhost:3000](http://localhost:3000) to view the application.
 
-## 数据库管理
+## Database Management
 
-### 查看数据库
+### View Database
 
 ```bash
-# 打开Prisma Studio查看数据
+# Open Prisma Studio to view data
 npx prisma studio
 ```
 
-### 重置数据库
+### Reset Database
 
 ```bash
-# 删除现有数据库
+# Delete existing database
 rm prisma/dev.db
 
-# 重新创建数据库
+# Recreate database
 npx prisma db push
 ```
 
-### 数据库迁移
+### Database Migration
 
 ```bash
-# 创建迁移文件
+# Create migration file
 npx prisma migrate dev --name init
 
-# 应用迁移
+# Apply migration
 npx prisma migrate deploy
 ```
 
-## API 端点
+## API Endpoints
 
-### 获取所有任务
+### Get All Tasks
 ```
 GET /api/todos
 ```
 
-### 创建新任务
+### Create New Task
 ```
 POST /api/todos
 Content-Type: application/json
 
 {
-  "text": "任务内容"
+  "text": "Task content"
 }
 ```
 
-### 更新任务
+### Update Task
 ```
 PATCH /api/todos/[id]
 Content-Type: application/json
 
 {
   "completed": true,
-  "text": "更新的任务内容"
+  "text": "Updated task content"
 }
 ```
 
-### 删除任务
+### Delete Task
 ```
 DELETE /api/todos/[id]
 ```
 
-### 清除已完成任务
+### Clear Completed Tasks
 ```
 DELETE /api/todos/clear-completed
 ```
 
-## 项目结构
+## Project Structure
 
 ```
 nextjs-todo/
@@ -139,42 +139,42 @@ nextjs-todo/
 │   ├── app/
 │   │   ├── api/
 │   │   │   └── todos/
-│   │   │       ├── route.ts              # 获取和创建任务
-│   │   │       ├── [id]/route.ts         # 更新和删除单个任务
-│   │   │       └── clear-completed/route.ts # 清除已完成任务
-│   │   ├── page.tsx                      # 主页面
-│   │   ├── layout.tsx                    # 布局组件
-│   │   └── globals.css                   # 全局样式
+│   │   │       ├── route.ts              # Get and create tasks
+│   │   │       ├── [id]/route.ts         # Update and delete single task
+│   │   │       └── clear-completed/route.ts # Clear completed tasks
+│   │   ├── page.tsx                      # Main page
+│   │   ├── layout.tsx                    # Layout component
+│   │   └── globals.css                   # Global styles
 │   └── generated/
-│       └── prisma/                       # Prisma客户端
+│       └── prisma/                       # Prisma client
 ├── prisma/
-│   └── schema.prisma                     # 数据库模式
-├── .env                                  # 环境变量
+│   └── schema.prisma                     # Database schema
+├── .env                                  # Environment variables
 └── package.json
 ```
 
-## 开发指南
+## Development Guide
 
-### 添加新功能
+### Adding New Features
 
-1. 在`prisma/schema.prisma`中定义数据模型
-2. 运行`npx prisma generate`生成客户端
-3. 运行`npx prisma db push`更新数据库
-4. 创建相应的API路由
-5. 更新前端组件
+1. Define data models in `prisma/schema.prisma`
+2. Run `npx prisma generate` to generate client
+3. Run `npx prisma db push` to update database
+4. Create corresponding API routes
+5. Update frontend components
 
-### 样式定制
+### Customizing Styles
 
-应用使用Tailwind CSS，可以在`src/app/globals.css`中添加自定义样式。
+The application uses Tailwind CSS. You can add custom styles in `src/app/globals.css`.
 
-### 部署
+### Deployment
 
-应用可以部署到Vercel、Netlify等平台。确保：
+The application can be deployed to Vercel, Netlify, and other platforms. Ensure:
 
-1. 设置正确的环境变量
-2. 配置数据库连接（生产环境建议使用PostgreSQL）
-3. 运行数据库迁移
+1. Set correct environment variables
+2. Configure database connection (PostgreSQL recommended for production)
+3. Run database migrations
 
-## 许可证
+## License
 
 MIT

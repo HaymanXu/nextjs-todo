@@ -64,17 +64,17 @@ export default function Home() {
       <div className="container mx-auto px-4 py-8 max-w-2xl">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-2">
-            ToDo 应用
+            ToDo Application
           </h1>
           <p className="text-gray-600 dark:text-gray-300">
-            管理你的任务，提高工作效率
+            Manage your tasks and improve productivity
           </p>
         </div>
 
-        {/* 错误提示 */}
+        {/* Error Message */}
         {error && <ErrorMessage error={error} onClose={clearError} />}
 
-        {/* 过滤器 */}
+        {/* Filter */}
         <TodoFilterComponent
           filter={filter}
           onFilterChange={setFilter}
@@ -84,7 +84,7 @@ export default function Home() {
           completedCount={completedCount}
         />
 
-        {/* 任务列表 */}
+        {/* Todo List */}
         <TodoList
           todos={filteredTodos}
           filter={filter}
@@ -92,7 +92,7 @@ export default function Home() {
           onDelete={deleteTodo}
         />
 
-        {/* 统计信息 */}
+        {/* Statistics */}
         <TodoStats
           totalCount={todos.length}
           activeCount={activeCount}
@@ -100,10 +100,10 @@ export default function Home() {
         />
       </div>
 
-      {/* 浮动添加按钮 */}
+      {/* Floating Add Button */}
       <FloatingAddButton onClick={handleAddButtonClick} />
 
-      {/* 底部添加任务表单 */}
+      {/* Bottom Add Todo Form */}
       {showAddForm && (
         <AddTodoForm
           newTodo={newTodo}
