@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { Todo } from '../types/todo';
 
 interface TodoItemProps {
@@ -9,6 +10,12 @@ interface TodoItemProps {
 }
 
 export default function TodoItem({ todo, onToggle, onDelete }: TodoItemProps) {
+  const [formattedDate, setFormattedDate] = useState<string>('');
+
+  useEffect(() => {
+    setFormattedDate(new Date(todo.createdAt).toLocaleString('en-US'));
+  }, [todo.createdAt]);
+
   return (
     <li className="flex items-center gap-4 p-4 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
       <button
@@ -37,7 +44,7 @@ export default function TodoItem({ todo, onToggle, onDelete }: TodoItemProps) {
           {todo.text}
         </p>
         <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-          Created at {new Date(todo.createdAt).toLocaleString('en-US')}
+          Created at {formattedDate}
         </p>
       </div>
       
