@@ -46,10 +46,10 @@ export async function PATCH(
 // DELETE /api/todos/[id] - 删除todo
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: any
 ) {
   try {
-    const id = parseInt(params.id);
+    const id = parseInt(context.params.id);
     
     if (isNaN(id)) {
       return NextResponse.json(
