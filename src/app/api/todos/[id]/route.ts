@@ -6,10 +6,10 @@ const prisma = new PrismaClient();
 // PATCH /api/todos/[id] - 更新todo
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: any
 ) {
   try {
-    const id = parseInt(params.id);
+    const id = parseInt(context.params.id);
     
     if (isNaN(id)) {
       return NextResponse.json(
